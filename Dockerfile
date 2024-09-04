@@ -26,6 +26,7 @@ LABEL       org.opencontainers.image.source="https://github.com/pterodactyl/yolk
 LABEL       org.opencontainers.image.licenses=MIT
 
 RUN 		apt-get update -y \
+ 			&& apt-get upgrade -y \
  			&& apt-get install -y ca-certificates openssl tar sqlite3 fontconfig libfreetype6 tzdata iproute2 libstdc++6 \
  			&& useradd -d /home/container -m container
 
