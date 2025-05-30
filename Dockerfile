@@ -20,7 +20,7 @@
 # SOFTWARE.
 #
 
-FROM        --platform=$TARGETOS/$TARGETARCH eclipse-temurin:11-jdk-jammy
+FROM        --platform=$TARGETOS/$TARGETARCH eclipse-temurin:11-jdk-noble
 
 LABEL       org.opencontainers.image.source="https://github.com/pterodactyl/yolks"
 LABEL       org.opencontainers.image.licenses=MIT
@@ -28,6 +28,7 @@ LABEL       org.opencontainers.image.licenses=MIT
 RUN 		apt-get update -y \
  			&& apt-get upgrade -y \
  			&& apt-get install -y ca-certificates openssl tar sqlite3 fontconfig libfreetype6 tzdata iproute2 libstdc++6 \
+ 			&& apt-get clean \
  			&& useradd -d /home/container -m container
 
 USER        container
